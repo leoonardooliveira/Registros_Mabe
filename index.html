@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sys Arquivo Morto</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-archive"></i>
+                    <span class="sidebar-title">Sys Arquivo</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="#" class="link-item active" id="link-list">
+                            <i class="fas fa-list"></i>
+                            <span>Listar Registros</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="link-item" id="link-form">
+                            <i class="fas fa-plus-square"></i>
+                            <span>Novo Registro</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="btn-logout" class="btn-sair">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="content-main">
+            <header>
+                <button id="btn-toggle-sidebar" class="btn-toggle"><i class="fas fa-bars"></i></button>
+            </header>
+
+            <section id="list-section">
+                <header>
+                    <h1>Registros do Arquivo Morto</h1>
+                    <div class="busca-container">
+                        <input type="text" id="busca-aluno" placeholder="Buscar por nome ou número da pasta...">
+                        <button id="clear-search-btn" style="display: none;">&times;</button>
+                    </div>
+                </header>
+                <div class="table-responsive">
+                    <table class="tabela-registros">
+                        <thead>
+                            <tr>
+                                <th>Número da Pasta</th>
+                                <th>Nome Completo</th>
+                                <th class="acoes">
+                                    Ações
+                                    <button id="btn-relatorio-excel" class="btn-relatorio">
+                                        <i class="fas fa-file-excel"></i>
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-registros">
+                            <tr id="loading-status">
+                                <td colspan="3">Carregando registros...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="form-section" style="display: none;">
+                <h2>Novo Registro</h2>
+                <div class="form-cadastro">
+                    <label for="numero-pasta">Número da Pasta:</label>
+                    <input type="text" id="numero-pasta" name="numero-pasta">
+
+                    <label for="nome-aluno">Nome Completo:</label>
+                    <input type="text" id="nome-aluno" name="nome-aluno">
+                    
+                    <button id="btn-salvar" class="btn-salvar">Salvar Registro</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
